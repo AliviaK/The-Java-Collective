@@ -1,6 +1,6 @@
-# Team Resume 
+# TeamAscent Resume 
 
-## Who on your team…
+## Who on our team…
 
 ### Is a good speaker?
 * John

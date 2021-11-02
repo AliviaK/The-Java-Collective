@@ -1,6 +1,6 @@
 # TeamAscent Charter
 ## Team Members
-John Oliver - Erik Christensen - Alivia Kleinfeldt
+John Oliver - Erik Christenson - Alivia Kleinfeldt
 
 ## Team Purpose and Goals
 To create a quality web service that users will find easy and worthwhile to interact with and incorporate its services 

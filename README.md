@@ -1,5 +1,5 @@
-# TeamData
-
+# The Java Collective
+It is difficult to find freely available income data that is easy to lookup. We aim to solve this by making income data from the IRS freely available via an easy to use API that will provide average income data by U.S. ZIP code.
 ### Project Technologies/Techniques
 
 

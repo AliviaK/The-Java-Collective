@@ -13,7 +13,7 @@
 * Web Services consumed using Java
     * http://api.zippopotam.us (zip code information, City / State)
 * CSS
-    * Bootstrap or Materialize (tbd)
+    * Bootstrap  
 * Data Validation
     * Bootstrap Validator for front end
     * Explore Hibernate's validation
@@ -29,6 +29,6 @@
 
 ### Project Operations
 
-* API incoming user request with zipcode  API output 
+* API incoming user request with zipcode   
 * API output zipcode, median income, city, state
 * API documentation page(s)

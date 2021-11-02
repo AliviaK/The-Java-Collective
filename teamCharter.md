@@ -1,4 +1,4 @@
-# TeamAscent Charter
+# The Java Collective Charter
 ## Team Members
 John Oliver - Erik Christenson - Alivia Kleinfeldt
 

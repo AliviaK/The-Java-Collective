@@ -29,28 +29,18 @@
 <body>
     <div class="container">
         <h1>Income Data API</h1>
-        <div>
-            <h2>Introduction</h2>
-            <p>This API provides median income of a zip code for a given year. The year is an optional parameter, and if
-                no year is provided, info for the most recent year is returned. Users can search for a single zip code,
-                or search by city and state, which will provide a list of zip codes and their respective info within the
-                city.</p>
-        </div>
+
         <article>
             <h3>Get median income of most recent year by zip code</h3>
-            <p>Example: </p>
         </article>
         <article>
             <h3>Get median income by zip code and year</h3>
-            <p>Example: </p>
         </article>
         <article>
             <h3>Get median income of most recent year for all zip codes by city</h3>
-            <p>Example: </p>
         </article>
         <article>
             <h3>Get median income for all zip codes by city and year</h3>
-            <p>Example: </p>
         </article>
 
         <article>

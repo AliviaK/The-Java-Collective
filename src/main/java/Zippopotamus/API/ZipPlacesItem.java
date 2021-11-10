@@ -1,8 +1,8 @@
-package edu.matc.entity;
+package Zippopotamus.API;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class PlacesItem{
+public class ZipPlacesItem {
 
 	@JsonProperty("latitude")
 	private String latitude;

@@ -1,4 +1,4 @@
-package edu.matc.entity;
+package Zippopotamus.API;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -9,7 +9,7 @@ public class ZipCode{
 	private String country;
 
 	@JsonProperty("places")
-	private List<PlacesItem> places;
+	private List<ZipPlacesItem> places;
 
 	@JsonProperty("country abbreviation")
 	private String countryAbbreviation;
@@ -25,11 +25,11 @@ public class ZipCode{
 		return country;
 	}
 
-	public void setPlaces(List<PlacesItem> places){
+	public void setPlaces(List<ZipPlacesItem> places){
 		this.places = places;
 	}
 
-	public List<PlacesItem> getPlaces(){
+	public List<ZipPlacesItem> getPlaces(){
 		return places;
 	}
 

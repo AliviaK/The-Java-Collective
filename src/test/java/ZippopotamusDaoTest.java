@@ -12,7 +12,7 @@ public class ZippopotamusDaoTest {
     @Test
     public void testZipApi() throws Exception {
         ZippopotamusDAO zippoDAO = new ZippopotamusDAO();
-        ZipCode zc = zippoDAO.GetCityState("53589");
+        ZipCode zc = zippoDAO.GetCityState("94608");
         //the city name is located in the placesItem.  since each zip has only one city,
         //it will always be first item in the list (0)
         String cityFromApi = zc.getPlaces().get(0).getPlaceName();

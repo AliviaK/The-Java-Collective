@@ -15,7 +15,7 @@ public class ReportsApplication extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         HashSet h = new HashSet<Class<?>>();
-        // h.add(ReportsResource.class );
+        h.add(ReportsResource.class );
         return h;
     }
 }

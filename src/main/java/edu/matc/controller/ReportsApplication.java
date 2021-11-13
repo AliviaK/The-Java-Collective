@@ -43,7 +43,7 @@ public class ReportsApplication extends Application {
         ZippopotamusDAO zippoDAO = new ZippopotamusDAO();
 
         //setting up the object with API call, zc will contain city/state data
-        ZipCode zc = zippoDAO.GetCityState(String.valueOf(zipCodeToProcess));
+        ZipCode zc = zippoDAO.GetCityState(zipCodeToProcess);
         String city = zc.getPlaces().get(0).getPlaceName();
         String state = zc.getPlaces().get(0).getState();
 

@@ -20,7 +20,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="TeamData" value="071ccbee-7d4e-48b7-af79-606a22476454" />
+          <factory-entry name="TeamData" value="9a81fa39-f3f0-4094-a126-76045aa501d4" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>

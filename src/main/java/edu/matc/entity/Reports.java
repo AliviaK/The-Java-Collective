@@ -1,12 +1,15 @@
 package edu.matc.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 
 // Income Data object I named Reports but can be refactored if there is a better name for it
+
 public class Reports {
 
     private int zipCode;
-    private BigDecimal householdMedianIncome;
+    private float householdMedianIncome;
     private int year;
     private String state;
     private String city;
@@ -19,11 +22,11 @@ public class Reports {
         this.zipCode = zipCode;
     }
 
-    public BigDecimal getHouseholdMedianIncome() {
+    public float getHouseholdMedianIncome() {
         return householdMedianIncome;
     }
 
-    public void setHouseholdMedianIncome(BigDecimal householdMedianIncome) {
+    public void setHouseholdMedianIncome(float householdMedianIncome) {
         this.householdMedianIncome = householdMedianIncome;
     }
 
@@ -62,3 +65,4 @@ public class Reports {
                 '}';
     }
 }
+

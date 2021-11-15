@@ -1,7 +1,10 @@
 package edu.matc.controller;
 
-import edu.matc.entity.Reports;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import edu.matc.entity.*;
 import edu.matc.persistence.GenericDao;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -12,6 +15,7 @@ import java.util.List;
 // Class to be filled out
 @Path("/reports")
 public class ReportsResource {
+    private final Logger logger = LogManager.getLogger(this.getClass());
     // Dao to create/read/update/delete database info
     GenericDao reportsDao = new GenericDao(Reports.class);
 
@@ -19,16 +23,19 @@ public class ReportsResource {
     /**
      * Return data of specified zip
      *
-     * @param zip the zip
+     * @param zipCode the zip
      * @return the data by zip
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/zipCodes/{zip}")
-    public Response getDataByZip(@PathParam("zip") String zip) {
-        Reports report = (Reports) reportsDao.getByPropertyEqual("zipCode", zip, Reports.class);
-        if (report != null) {
-            return Response.ok(report, MediaType.APPLICATION_JSON).build();
+    @Path("/zipCodes/{zipCode}")
+    public Response getDataByZip(@PathParam("zipCode") int zipCode) throws JsonProcessingException {
+        ProcessReports pr = new ProcessReports();
+        List<Reports> reports = pr.processZipCode(zipCode);
+
+
+        if (reports != null) {
+            return Response.ok(reports, MediaType.APPLICATION_JSON).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }

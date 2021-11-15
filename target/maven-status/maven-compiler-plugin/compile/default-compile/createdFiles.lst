@@ -1,7 +1,0 @@
-edu\matc\entity\Reports.class
-edu\matc\persistence\ZippopotamusDAO.class
-edu\matc\controller\ReportsApplication.class
-edu\matc\controller\ReportsResource.class
-edu\matc\entity\ZipCode.class
-edu\matc\entity\PlacesItem.class
-edu\matc\persistence\SessionFactoryProvider.class

@@ -90,6 +90,7 @@ public class ReportsApplication extends Application {
             report.setCity(city);
             report.setState(state);
             report.setYear(yearsToReturn.get(i));
+            report.setHouseholdMedianIncome(100);
 
             //JOHN - here we can call your database DAO
             //with a zipcode / year, were in a loop already

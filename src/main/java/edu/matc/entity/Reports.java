@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 public class Reports {
 
     private int zipCode;
-    private BigDecimal householdMedianIncome;
+    private float householdMedianIncome;
     private int year;
     private String state;
     private String city;
@@ -19,11 +19,11 @@ public class Reports {
         this.zipCode = zipCode;
     }
 
-    public BigDecimal getHouseholdMedianIncome() {
+    public float getHouseholdMedianIncome() {
         return householdMedianIncome;
     }
 
-    public void setHouseholdMedianIncome(BigDecimal householdMedianIncome) {
+    public void setHouseholdMedianIncome(float householdMedianIncome) {
         this.householdMedianIncome = householdMedianIncome;
     }
 

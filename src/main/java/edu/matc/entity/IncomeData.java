@@ -1,6 +1,7 @@
 package edu.matc.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
@@ -10,14 +11,15 @@ public class IncomeData {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "year")
+    @NotNull
+    @Column(name = "year", nullable = false)
     private Integer year;
 
     @Column(name = "zip_code")
     private Integer zipCode;
 
     @Column(name = "estimate_households_total")
-    private BigDecimal estimateHouseholdsTotal;
+    private float estimateHouseholdsTotal;
 
     @Column(name = "estimate_households_total_less_than_10000")
     private BigDecimal estimateHouseholdsTotalLessThan10000;
@@ -53,7 +55,7 @@ public class IncomeData {
     private BigDecimal estimateHouseholdsMedianIncomeDollars;
 
     @Column(name = "estimate_households_mean_income_dollars")
-    private BigDecimal estimateHouseholdsMeanIncomeDollars;
+    private float estimateHouseholdsMeanIncomeDollars;
 
     @Column(name = "estimate_households_percent_allocated_household_income")
     private BigDecimal estimateHouseholdsPercentAllocatedHouseholdIncome;
@@ -115,11 +117,11 @@ public class IncomeData {
         this.zipCode = zipCode;
     }
 
-    public BigDecimal getEstimateHouseholdsTotal() {
+    public float getEstimateHouseholdsTotal() {
         return this.estimateHouseholdsTotal;
     }
 
-    public void setEstimateHouseholdsTotal(BigDecimal estimateHouseholdsTotal) {
+    public void setEstimateHouseholdsTotal(float estimateHouseholdsTotal) {
         this.estimateHouseholdsTotal = estimateHouseholdsTotal;
     }
 
@@ -211,11 +213,11 @@ public class IncomeData {
         this.estimateHouseholdsMedianIncomeDollars = estimateHouseholdsMedianIncomeDollars;
     }
 
-    public BigDecimal getEstimateHouseholdsMeanIncomeDollars() {
+    public float getEstimateHouseholdsMeanIncomeDollars() {
         return this.estimateHouseholdsMeanIncomeDollars;
     }
 
-    public void setEstimateHouseholdsMeanIncomeDollars(BigDecimal estimateHouseholdsMeanIncomeDollars) {
+    public void setEstimateHouseholdsMeanIncomeDollars(float estimateHouseholdsMeanIncomeDollars) {
         this.estimateHouseholdsMeanIncomeDollars = estimateHouseholdsMeanIncomeDollars;
     }
 

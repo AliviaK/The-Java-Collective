@@ -25,7 +25,7 @@ public class IncomeDataDAO {
      */
     public List<IncomeData> getIncomeDataByZip(int zip) {
         List<IncomeData> incomeData = null;
-        final String columnName = "zip_code";
+        final String columnName = "zipCode";
 
         try (Session session = sessionFactory.openSession();){
 
@@ -36,6 +36,7 @@ public class IncomeDataDAO {
             query.select(root).where(builder.equal(root.get(columnName),zip));
             incomeData = session.createQuery(query).getResultList();
         } catch (HibernateException he) {
+            logger.debug("Hibernate exception thrown in getIncomeByZip");
             logger.catching(he);
         } catch (Exception ex) {
             logger.catching(ex);

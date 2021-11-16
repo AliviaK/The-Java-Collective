@@ -2,14 +2,12 @@ package edu.matc.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import edu.matc.entity.*;
-import edu.matc.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
 import java.util.List;
 
 // Class to be filled out
@@ -17,7 +15,7 @@ import java.util.List;
 public class ReportsResource {
     private final Logger logger = LogManager.getLogger(this.getClass());
     // Dao to create/read/update/delete database info
-    GenericDao reportsDao = new GenericDao(Reports.class);
+    ProcessReports pr = new ProcessReports();
 
 
     /**
@@ -30,7 +28,6 @@ public class ReportsResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/zipCodes/{zipCode}")
     public Response getDataByZip(@PathParam("zipCode") int zipCode) throws JsonProcessingException {
-        ProcessReports pr = new ProcessReports();
         List<Reports> reports = pr.processZipCode(zipCode);
 
 
@@ -51,18 +48,12 @@ public class ReportsResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/cities/{city}/{state}")
-    public Response getDataByCity(@PathParam("city") String city, @PathParam("state") String state) {
-        ArrayList<Reports> reportsOfCity = (ArrayList<Reports>) reportsDao.getByPropertyEqual("city", city, Reports.class);
-        ArrayList<Reports> reportsOfCityState = new ArrayList<>();
-        for (Reports report: reportsOfCity
-             ) {
-            if ((reportsDao.getByPropertyEqual("state", state, Reports.class).equals(state))){
-                reportsOfCityState.add(report);
-            }
-        }
-        if (reportsOfCityState != null) {
-            return Response.ok(reportsOfCityState, MediaType.APPLICATION_JSON).build();
+    @Path("/cities/{state}/{city}")
+    public Response getDataByCity(@PathParam("state") String state, @PathParam("city") String city) throws JsonProcessingException {
+        List<Reports> reportsOfStateCity = pr.processStateCity(state, city);
+
+        if (reportsOfStateCity != null) {
+            return Response.ok(reportsOfStateCity, MediaType.APPLICATION_JSON).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }

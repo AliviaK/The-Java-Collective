@@ -47,7 +47,7 @@ public class ProcessReports {
     }
 
     /**
-     * Process zip code list.
+     * Process zip code list. Overloaded to exclude year
      *
      * @param zipCodeToProcess the zip code to process
      * @return the list
@@ -98,6 +98,35 @@ public class ProcessReports {
         return reports;
     }
 
+    /**
+     * Process state city list. Overloaded to exclude year
+     *
+     * @param state         the state
+     * @param city          the city
+     * @return the list
+     * @throws JsonProcessingException the json processing exception
+     */
+    public List<Reports> processStateCity(String state, String city) throws JsonProcessingException {
+        ZippopotamusDAO zippoDAO = new ZippopotamusDAO();
+
+        //use the api to get all the zip codes from our city name
+        StateCity sc = zippoDAO.GetZipCodes(state,city);
+
+        //find how many zip codes we have
+        int numOfZips = sc.getPlaces().size();
+        int i = 0;
+        logger.info("Zip codes (total count) from state / city : "+numOfZips);
+
+        //loop through each zip code, sending the zip plus list of years
+        //to the set report function
+
+        while (i<numOfZips) {
+            setReport(Integer.parseInt(sc.getPlaces().get(i).getPostCode()),state,city);
+            i++;
+        }
+
+        return reports;
+    }
 
     // method takes a single zip code and its city/state data,
     //then looks at each year in the list, loads the income

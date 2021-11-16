@@ -29,7 +29,8 @@ class IncomeDataDAOTest {
      */
     @Test
     void getIncomeDataByZip() {
-          ArrayList<IncomeData> incomeData = new ArrayList<IncomeData>();
+        ArrayList<IncomeData> incomeData = new ArrayList<IncomeData>();
+
         incomeData = (ArrayList<IncomeData>) incomeDataDAO.getIncomeDataByZip(53713);
 
         incomeData.forEach((record) -> {

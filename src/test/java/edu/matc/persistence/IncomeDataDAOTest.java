@@ -29,21 +29,21 @@ class IncomeDataDAOTest {
      */
     @Test
     void getIncomeDataByZip() {
-        /*  ArrayList<IncomeData> incomeData = new ArrayList<IncomeData>();
+          ArrayList<IncomeData> incomeData = new ArrayList<IncomeData>();
         incomeData = (ArrayList<IncomeData>) incomeDataDAO.getIncomeDataByZip(53713);
 
         incomeData.forEach((record) -> {
                 if(record.getYear() == 2019)
-                    assertEquals( 30.8f,record.getEstimateHouseholdsMeanIncomeDollars());
+                    assertEquals( (Float)59961f,record.getEstimateHouseholdsMeanIncomeDollars());
                 if(record.getYear() == 2018)
-                    assertEquals( 30.4f,record.getEstimateHouseholdsMeanIncomeDollars());
+                    assertEquals( (Float)58261f,record.getEstimateHouseholdsMeanIncomeDollars());
                 if(record.getYear() == 2017)
-                    assertEquals( 29.5f,record.getEstimateHouseholdsMeanIncomeDollars());
+                    assertEquals( (Float)54271f,record.getEstimateHouseholdsMeanIncomeDollars());
                 if(record.getYear() == 2016)
-                    assertEquals( 29.1f,record.getEstimateHouseholdsMeanIncomeDollars());
+                    assertEquals( (Float)50816f,record.getEstimateHouseholdsMeanIncomeDollars());
                 if(record.getYear() == 2015)
-                    assertEquals( 28.4f,record.getEstimateHouseholdsMeanIncomeDollars());
+                    assertEquals( (Float)49437f,record.getEstimateHouseholdsMeanIncomeDollars());
                 }
-        ); */
+        );
     }
 }

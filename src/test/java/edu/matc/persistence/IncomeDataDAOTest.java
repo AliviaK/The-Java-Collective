@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * This class contains tests for the IncomeData database DAO
+ *
  * @author John Oliver
  */
 class IncomeDataDAOTest {
@@ -19,14 +20,17 @@ class IncomeDataDAOTest {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * Sets up.
+     */
     @BeforeEach
     void setUp() {
         this.incomeDataDAO = new IncomeDataDAO();
 
     }
 
-    /** Tests to ensure that lookup by zip code works.
-     *
+    /**
+     * Tests to ensure that lookup by zip code works.
      */
     @Test
     void getIncomeDataByZip() {
@@ -50,7 +54,7 @@ class IncomeDataDAOTest {
     }
 
     /**
-     *  Test lookup by year and zip code.
+     * Test lookup by year and zip code.
      */
     @Test
     void getIncomeData() {

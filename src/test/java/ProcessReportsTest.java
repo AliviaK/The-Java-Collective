@@ -8,11 +8,16 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-
-
-
+/**
+ * The type Process reports test.
+ */
 public class ProcessReportsTest {
 
+    /**
+     * Test process zip code.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testProcessZipCode() throws Exception {
         ProcessReports pr = new ProcessReports();
@@ -30,7 +35,11 @@ public class ProcessReportsTest {
     }
 
 
-
+    /**
+     * Test process state city.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testProcessStateCity() throws Exception {
         ProcessReports pr = new ProcessReports();

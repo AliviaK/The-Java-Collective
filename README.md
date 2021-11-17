@@ -5,6 +5,7 @@ from the IRS freely available via an easy to use API that will provide average i
 more easily facilitate lookup by city we will use the Zippopotam.US API as a backend to get ZIP codes by city.
 These reports cover a five-year span of 2015 through 2019.
 
+http://thejavacollective-env.eba-pg8d6h4p.us-east-2.elasticbeanstalk.com
 ---
 
 ### Service provided:
@@ -25,8 +26,6 @@ for the most recent year (2019).
     * Maven
 * Web Services consumed using Java
     * http://api.zippopotam.us (zip code information, City / State)
-* Data Validation
-    * Explore Hibernate's validation
 * Logging
     * Log4J2
 * Hosting
@@ -41,22 +40,22 @@ for the most recent year (2019).
 
 | property | description | type | 
 | --- | --- | --- |
-| zipCode | the Reports five-digit US zip code ex. 53703 | int |
-| householdMedianIncome | the Reports average income within the zip code | float |
+| zipCode | the Reports five-digit US zip code ex. 53703 | String |
+| householdMedianIncome | the Reports average income within the zip code; returns 0 if not enough data | float |
 | year | the Reports year in format YYYY between years 2015 - 2019 ex. 2019 (OPTIONAL) | int |
 | state | the Reports state using two-letter state abbreviation ex. WI | String |
 | city | the Reports city ex. Madison | String |
  
 
 ## Service Calls
-- GET reports/zip-code/{zipCode}
-- GET reports/zip-code/{zipCode}?year={year}
+- GET reports/zip-codes/{zipCode}
+- GET reports/zip-codes/{zipCode}?year={year}
 - GET reports/state/{state}/city/{city}
 - GET reports/state/{state}/city/{city}?year={year}
 
 ---
 
-### Get reports/zip-code/{zip-code}
+### Get reports/zip-codes/{zipCode}
 Takes a zipCode; Returns json of a Reports object with zipCode, state, city, most recent year (2019), and median income for the year
 Example Curl Request:  
 
@@ -70,11 +69,11 @@ Example Success Response:
 
 ---
 
-### Get reports/zip-code/{zip-code}?year={year}
+### Get reports/zip-codes/{zipCode}?year={year}
 Takes a zipCode and year; Returns json of a Reports object with zipCode, state, city, chosen year, and median income for chosen year
 Example Curl Request:
 
-| curl --request GET http://thejavacollective-env.eba-pg8d6h4p.us-east-2.elasticbeanstalk.com/income-data/reports/zipCodes/53589?year=2018 |
+| curl --request GET http://thejavacollective-env.eba-pg8d6h4p.us-east-2.elasticbeanstalk.com/income-data/reports/zip-codes/53589?year=2018 |
 | --- |
 
 Example Success Response:
@@ -119,7 +118,7 @@ Example Success Response:
 | --- |
 ### Project Operations
 
-* API incoming user request with zipcode   
-* API output zipcode, median income, city, state
-* API documentation page(s)
+* [Journal](journal.md)
+* [Team Resume](teamResume.md)
+* [Team Charter](teamCharter.md)
 

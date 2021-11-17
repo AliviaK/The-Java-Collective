@@ -49,7 +49,7 @@ public class ReportsResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/cities/{state}/{city}")
+    @Path("/state/{state}/city/{city}")
     public Response getDataByCity(@PathParam("state") String state,
                                   @PathParam("city") String city,
                                   @QueryParam("year") @DefaultValue("2019") int year) throws JsonProcessingException {

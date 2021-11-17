@@ -85,7 +85,7 @@ public class ProcessReports {
     // method takes a single zip code and its city/state data,
     //and loads the income data for the year called
     private void setReport(int zip, String state, String city, int year){
-        logger.debug("setReport: ZIP: " + zip+" state: " + state + " year: " + year );
+        logger.info("SetReport incoming zip: "+zip +"incoming year: "+year);
         IncomeDataDAO incomeDataDAO = new IncomeDataDAO();
         ArrayList<IncomeData> incomeData = new ArrayList<IncomeData>();
 

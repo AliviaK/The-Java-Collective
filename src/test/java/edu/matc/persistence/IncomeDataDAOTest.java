@@ -36,7 +36,7 @@ class IncomeDataDAOTest {
     void getIncomeDataByZip() {
         ArrayList<IncomeData> incomeData = new ArrayList<IncomeData>();
 
-        incomeData = (ArrayList<IncomeData>) incomeDataDAO.getIncomeData(53713);
+        incomeData = (ArrayList<IncomeData>) incomeDataDAO.getIncomeData("53713");
 
         incomeData.forEach((record) -> {
                 if(record.getYear() == 2019)
@@ -61,12 +61,15 @@ class IncomeDataDAOTest {
 
         ArrayList<IncomeData> incomeData = new ArrayList<IncomeData>();
 
-        incomeData = (ArrayList<IncomeData>) incomeDataDAO.getIncomeData(53713, 2018);
+        incomeData = (ArrayList<IncomeData>) incomeDataDAO.getIncomeData("53713", 2018);
 
         incomeData.forEach((record) -> {
                     if(record.getYear() == 2018)
                         assertEquals( (Float)58261f,record.getEstimateHouseholdsMeanIncomeDollars());
+                    logger.debug("Record Data: " + record.getYear() +" "+ record.getZipCode() +" "+ record.getEstimateHouseholdsMeanIncomeDollars());
                 }
         );
     }
+
+
 }

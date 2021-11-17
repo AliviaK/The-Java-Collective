@@ -87,7 +87,7 @@
             </div>
             <div class="card-body">
                 <p class="fw-bold">Endpoint Structure: </p>
-                <p> /income-data/reports/zip-code/{zipCode} </p>
+                <p> /income-data/reports/zip-codes/{zipCode} </p>
                 <p class="fw-bold">Example Endpoint: </p>
                 <p class="fst-italic"> /income-data/reports/zip-codes/53703 </p>
             </div>
@@ -98,7 +98,7 @@
             </div>
             <div class="card-body mb-2">
                 <p class="fw-bold"> Endpoint Structure: </p>
-                <p> /income-data/reports/zip-code/{zipCode}?year={year} </p>
+                <p> /income-data/reports/zip-codes/{zipCode}?year={year} </p>
                 <p class="fw-bold">Example Endpoint: </p>
                 <p class="fst-italic"> /income-data/reports/zip-codes/53703?year=2018 </p>
             </div>

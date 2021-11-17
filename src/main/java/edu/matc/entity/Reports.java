@@ -11,17 +11,17 @@ import java.math.BigDecimal;
  */
 public class Reports {
 
-    private int zipCode;
+    private String zipCode;
     private float householdMedianIncome;
     private int year;
     private String state;
     private String city;
 
-    public int getZipCode() {
+    public String getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(int zipCode) {
+    public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
 

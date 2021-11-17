@@ -19,7 +19,7 @@ public class ZippopotamusDAO {
     Client client = ClientBuilder.newClient();
 
 
-    public ZipCode GetCityState(int zipcode) throws JsonProcessingException {
+    public ZipCode GetCityState(String zipcode) throws JsonProcessingException {
         //building url to send API
         String apiUrl = "http://api.zippopotam.us/us/"+zipcode;
         WebTarget target =

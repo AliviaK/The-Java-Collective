@@ -67,7 +67,7 @@ public class ProcessReports {
         //find how many zip codes we have
         int numOfZips = sc.getPlaces().size();
         int i = 0;
-        logger.info("ProcessStateCity ran with city: "+city +" with this many zip codes:  "+numOfZips);
+        logger.info("ProcessStateCity ran with city: "+city+" with this many zip codes:  "+numOfZips);
 
         //loop through each zip code, sending the zip plus list of years
         //to the set report function
@@ -91,21 +91,17 @@ public class ProcessReports {
 
         incomeData = (ArrayList<IncomeData>) incomeDataDAO.getIncomeData(zip,year);
 
-        logger.info("income amount: "+incomeData.size());
-
             Reports report = new Reports();
             report.setZipCode(zip);
             report.setCity(city);
             report.setState(state);
             report.setYear(year);
-            //if we query the DB and it returns NULL, there is no
-        //object to call.  this finds that and inserts zero for
-        //income value
-        if (incomeData.size() == 0 ){
-            report.setHouseholdMedianIncome(000);
-        } else {
-            report.setHouseholdMedianIncome(incomeData.get(0).getEstimateHouseholdsMedianIncomeDollars());
-        }
+
+            // Ignore null results.
+            if (incomeData.size() > 0) {
+                report.setHouseholdMedianIncome(incomeData.get(0).getEstimateHouseholdsMedianIncomeDollars());
+            }
+
             reports.add(report);
             logger.info("SetReport ran = new report object: "+report);
 

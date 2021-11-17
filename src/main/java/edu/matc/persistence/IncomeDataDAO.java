@@ -6,7 +6,9 @@ import org.hibernate.*;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -51,8 +53,10 @@ public class IncomeDataDAO {
      * @return IncomeData
      */
     public List<IncomeData> getIncomeData(int zip, int year) {
+        logger.debug("Get income by zip and year. YEAR: " + year + " ZIP: " + zip);
         List<IncomeData> incomeData = null;
-        final String columnName = "zipCode";
+        final String zipColumn = "zipCode";
+        final String yearColumn = "year";
 
         try (Session session = sessionFactory.openSession();){
 
@@ -63,10 +67,11 @@ public class IncomeDataDAO {
 
             query.select(root).where(
                     builder.and(
-                            builder.equal(root.get(columnName),zip),
-                            builder.equal(root.get("year"),year)
+                            builder.equal(root.get(zipColumn),zip),
+                            builder.equal(root.get(yearColumn),year)
                     ));
             incomeData = session.createQuery(query).getResultList();
+
         } catch (HibernateException he) {
             logger.debug("Hibernate exception thrown in getIncome with zip and year");
             logger.catching(he);
@@ -75,5 +80,48 @@ public class IncomeDataDAO {
         }
         return incomeData;
     }
+
+//    /** This method take a List of zip codes and years and gets all years for all zip codes.
+//     *
+//     * @param zips Zip Codes
+//     * @param years Years
+//     * @return Income data matching all supplied zip codes and years.
+//     */
+//    public List<IncomeData> getIncomeData(List<Integer> zips, List<Integer> years) {
+//
+//        List<IncomeData> incomeData = null;
+//        final String zipColumn = "zipCode";
+//        final String yearColumn = "year";
+//
+//        try (Session session = sessionFactory.openSession();){
+//
+//            CriteriaBuilder builder = session.getCriteriaBuilder();
+//            CriteriaQuery<IncomeData> query = builder.createQuery(IncomeData.class);
+//
+//            Root<IncomeData> root = query.from(IncomeData.class);
+//
+//            List<Predicate> predicates = new ArrayList<>();
+//
+//            builder.disjunction();
+//
+//            for (Integer zip : zips) {
+//                for (Integer year : years) {
+//                    predicates.add(builder.equal(root.get(yearColumn), year));
+//                    predicates.add(builder.equal(root.get(zipColumn), zip));
+//                    builder.disjunction();
+//                }
+//            }
+//            query.select(root).where(predicates.toArray(new Predicate[]{}));
+//            query.orderBy(builder.asc(root.get(yearColumn)),builder.asc(root.get(zipColumn)));
+//            incomeData = session.createQuery(query).getResultList();
+//
+//        } catch (HibernateException he) {
+//            logger.debug("Hibernate exception thrown in getIncome with zip and year");
+//            logger.catching(he);
+//        } catch (Exception ex) {
+//            logger.catching(ex);
+//        }
+//        return incomeData;
+//    }
 
 }

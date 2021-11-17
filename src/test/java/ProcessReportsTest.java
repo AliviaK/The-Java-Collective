@@ -1,0 +1,50 @@
+import edu.matc.controller.ProcessReports;
+import edu.matc.entity.*;
+import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
+
+
+
+public class ProcessReportsTest {
+
+    @Test
+    public void testProcessZipCode() throws Exception {
+        ProcessReports pr = new ProcessReports();
+        int year = 2019;
+
+        //not used, but does work with a single item array
+        //List<Integer> years = Arrays.asList(2020);
+
+        List<Reports> reports = pr.processZipCode(53589,year);
+
+        assertEquals(1, reports.size());
+        assertEquals(2019, reports.get(0).getYear());
+
+
+    }
+
+
+
+    @Test
+    public void testProcessStateCity() throws Exception {
+        ProcessReports pr = new ProcessReports();
+        int year = 2019;
+
+        //not used, but does work with a single item array
+        //List<Integer> years = Arrays.asList(2020);
+
+        List<Reports> reports = pr.processStateCity("wi","beloit",year);
+
+        //this city returns 2 zips.  we are sending 3 years so
+        //that is total of 2 reports
+        assertEquals(2, reports.size());
+
+    }
+
+}

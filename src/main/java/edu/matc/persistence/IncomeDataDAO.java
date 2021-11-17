@@ -36,7 +36,7 @@ public class IncomeDataDAO {
             query.select(root).where(builder.equal(root.get(columnName),zip));
             incomeData = session.createQuery(query).getResultList();
         } catch (HibernateException he) {
-            logger.debug("Hibernate exception thrown in getIncomeByZip");
+            logger.debug("Hibernate exception thrown in getIncome by zip only");
             logger.catching(he);
         } catch (Exception ex) {
             logger.catching(ex);
@@ -60,10 +60,15 @@ public class IncomeDataDAO {
             CriteriaQuery<IncomeData> query = builder.createQuery(IncomeData.class);
 
             Root<IncomeData> root = query.from(IncomeData.class);
-            query.select(root).where(builder.equal(root.get(columnName),zip));
+
+            query.select(root).where(
+                    builder.and(
+                            builder.equal(root.get(columnName),zip),
+                            builder.equal(root.get("year"),year)
+                    ));
             incomeData = session.createQuery(query).getResultList();
         } catch (HibernateException he) {
-            logger.debug("Hibernate exception thrown in getIncomeByZip");
+            logger.debug("Hibernate exception thrown in getIncome with zip and year");
             logger.catching(he);
         } catch (Exception ex) {
             logger.catching(ex);

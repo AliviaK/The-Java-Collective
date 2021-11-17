@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- *
+ * This class contains tests for the IncomeData database DAO
+ * @author John Oliver
  */
 class IncomeDataDAOTest {
 
@@ -44,6 +45,23 @@ class IncomeDataDAOTest {
                     assertEquals( (Float)50816f,record.getEstimateHouseholdsMeanIncomeDollars());
                 if(record.getYear() == 2015)
                     assertEquals( (Float)49437f,record.getEstimateHouseholdsMeanIncomeDollars());
+                }
+        );
+    }
+
+    /**
+     *  Test lookup by year and zip code.
+     */
+    @Test
+    void getIncomeData() {
+
+        ArrayList<IncomeData> incomeData = new ArrayList<IncomeData>();
+
+        incomeData = (ArrayList<IncomeData>) incomeDataDAO.getIncomeData(53713, 2018);
+
+        incomeData.forEach((record) -> {
+                    if(record.getYear() == 2018)
+                        assertEquals( (Float)58261f,record.getEstimateHouseholdsMeanIncomeDollars());
                 }
         );
     }

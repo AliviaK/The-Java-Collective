@@ -16,47 +16,34 @@ public class ReportsApplicationTest {
     @Test
     public void testProcessZipCode() throws Exception {
         ProcessReports pr = new ProcessReports();
-        List<Integer> years = Arrays.asList(2020,2019,2018);
+        int year = 2019;
 
         //not used, but does work with a single item array
         //List<Integer> years = Arrays.asList(2020);
 
-        List<Reports> reports = pr.processZipCode(53589,years);
-
-        assertEquals(3, reports.size());
-        assertEquals(2020, reports.get(0).getYear());
-        assertEquals(2019, reports.get(1).getYear());
-        assertEquals(2018, reports.get(2).getYear());
-
-    }
-
-    @Test
-    public void testProcessZipCodeWithoutYear() throws Exception {
-        ProcessReports pr = new ProcessReports();
-
-        //not used, but does work with a single item array
-        //List<Integer> years = Arrays.asList(2020);
-
-        List<Reports> reports = pr.processZipCode(53593);
+        List<Reports> reports = pr.processZipCode(53589,year);
 
         assertEquals(1, reports.size());
-        assertEquals(2020, reports.get(0).getYear());
+        assertEquals(2019, reports.get(0).getYear());
+
 
     }
+
+
 
     @Test
     public void testProcessStateCity() throws Exception {
         ProcessReports pr = new ProcessReports();
-        List<Integer> years = Arrays.asList(2020,2019,2018);
+        int year = 2019;
 
         //not used, but does work with a single item array
         //List<Integer> years = Arrays.asList(2020);
 
-        List<Reports> reports = pr.processStateCity("wi","beloit",years);
+        List<Reports> reports = pr.processStateCity("wi","beloit",year);
 
         //this city returns 2 zips.  we are sending 3 years so
-        //that is total of 6 reports
-        assertEquals(6, reports.size());
+        //that is total of 2 reports
+        assertEquals(2, reports.size());
 
     }
 

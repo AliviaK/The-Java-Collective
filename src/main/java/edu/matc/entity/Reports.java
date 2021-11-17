@@ -18,10 +18,20 @@ public class Reports {
     private String city;
 
 
+    /**
+     * Gets zip code.
+     *
+     * @return the zip code
+     */
     public String getZipCode() {
         return zipCode;
     }
 
+    /**
+     * Sets zip code.
+     *
+     * @param zipCode the zip code
+     */
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }

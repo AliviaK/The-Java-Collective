@@ -11,7 +11,11 @@ import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
-// Class to be filled out
+
+/**
+ * The type Reports resource. This class receives zip code or city/state search terms from the user and generates and
+ * returns the reports via json.
+ */
 @Path("/reports")
 public class ReportsResource {
     private final Logger logger = LogManager.getLogger(this.getClass());

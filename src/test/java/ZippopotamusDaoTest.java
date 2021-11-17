@@ -7,8 +7,15 @@ import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-
+/**
+ * The type Zippopotamus dao test.
+ */
 public class ZippopotamusDaoTest {
+    /**
+     * Test zip api.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testZipApi() throws Exception {
         ZippopotamusDAO zippoDAO = new ZippopotamusDAO();
@@ -23,6 +30,11 @@ public class ZippopotamusDaoTest {
     }
 
 
+    /**
+     * Test state city api.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testStateCityApi() throws Exception {
         ZippopotamusDAO zippoDAO = new ZippopotamusDAO();

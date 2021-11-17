@@ -66,7 +66,7 @@
                         </tr>
                         <tr>
                             <td>state</td>
-                            <td>Name of State ex. Wisconsin</td>
+                            <td>Name of State ex. WI</td>
                         </tr>
                         <tr>
                             <td>householdMedianIncome</td>
@@ -87,9 +87,9 @@
             </div>
             <div class="card-body">
                 <p class="fw-bold">Endpoint Structure: </p>
-                <p>income-data/reports/zip-code/{zipCode} </p>
+                <p> /income-data/reports/zip-code/{zipCode} </p>
                 <p class="fw-bold">Example Endpoint: </p>
-                <p class="fst-italic">income-data/reports/zip-code/53703 </p>
+                <p class="fst-italic"> /income-data/reports/zip-codes/53703 </p>
             </div>
         </div>
         <div class="card mb-2">
@@ -98,9 +98,9 @@
             </div>
             <div class="card-body mb-2">
                 <p class="fw-bold"> Endpoint Structure: </p>
-                <p>income-data/reports/zip-code/{zipCode}?year={year} </p>
+                <p> /income-data/reports/zip-code/{zipCode}?year={year} </p>
                 <p class="fw-bold">Example Endpoint: </p>
-                <p class="fst-italic">income-data/reports/zip-code/53703?year=2018 </p>
+                <p class="fst-italic"> /income-data/reports/zip-codes/53703?year=2018 </p>
             </div>
         </div>
         <div class="card mb-2">
@@ -109,9 +109,9 @@
             </div>
             <div class="card-body">
                 <p class="fw-bold">Endpoint Structure:</p>
-                <p> income-data/reports/state/{state}/city/{city} </p>
+                <p> /income-data/reports/state/{state}/city/{city} </p>
                 <p class="fw-bold">Example Endpoint: </p>
-                <p class="fst-italic"> income-data/reports/state/wi/city/madison </p>
+                <p class="fst-italic"> /income-data/reports/state/wi/city/madison </p>
             </div>
         </div>
         <div class="card mb-2">
@@ -120,9 +120,9 @@
             </div>
             <div class="card-body">
                 <p class="fw-bold">Endpoint Structure: </p>
-                <p>income-data/reports/state/{state}/city/{city}?year={year} </p>
+                <p> /income-data/reports/state/{state}/city/{city}?year={year} </p>
                 <p class="fw-bold">Example Endpoint: </p>
-                <p class="fst-italic">income-data/reports/state/wi/city/madison?year=2018 </p>
+                <p class="fst-italic"> /income-data/reports/state/wi/city/madison?year=2018 </p>
             </div>
         </div>
 

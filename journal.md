@@ -26,7 +26,9 @@ discussed first steps and how to divvy up work for the week.
 + Troubleshooting of null database column & bad insertion of data
 + A dependency was needed to convert an object to JSON 
 + We needed to switch data types to prevent zeros from being stripped
-
++ Swagger complication
++ Discussion of complications with returning range of years versus single year led to determining the return of one year
+is best for functionality and conciseness 
 ## Week 4
 + Met several times over the weekend to prioritize tasks and finalize functionality. Regularly deploying to AWS to see
 progress. 
@@ -34,4 +36,6 @@ progress.
 + Add optional year query param to methods
 + Add javaDoc and finalize documentation
 ### Week 4 Blockers:
++ Recreated database due to mysterious null column
 + Deploying to AWS stopped working
++ Method to retrieve all requested zipcodes and years simultaneously

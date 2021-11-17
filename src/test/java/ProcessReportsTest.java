@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 
-public class ReportsApplicationTest {
+public class ProcessReportsTest {
 
     @Test
     public void testProcessZipCode() throws Exception {

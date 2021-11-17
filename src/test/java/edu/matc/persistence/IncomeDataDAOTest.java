@@ -31,7 +31,7 @@ class IncomeDataDAOTest {
     void getIncomeDataByZip() {
         ArrayList<IncomeData> incomeData = new ArrayList<IncomeData>();
 
-        incomeData = (ArrayList<IncomeData>) incomeDataDAO.getIncomeDataByZip(53713);
+        incomeData = (ArrayList<IncomeData>) incomeDataDAO.getIncomeData(53713);
 
         incomeData.forEach((record) -> {
                 if(record.getYear() == 2019)

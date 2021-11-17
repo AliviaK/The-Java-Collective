@@ -23,7 +23,34 @@ public class IncomeDataDAO {
      * @param zip zip code
      * @return Income data based on zip code
      */
-    public List<IncomeData> getIncomeDataByZip(int zip) {
+    public List<IncomeData> getIncomeData(int zip) {
+        List<IncomeData> incomeData = null;
+        final String columnName = "zipCode";
+
+        try (Session session = sessionFactory.openSession();){
+
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<IncomeData> query = builder.createQuery(IncomeData.class);
+
+            Root<IncomeData> root = query.from(IncomeData.class);
+            query.select(root).where(builder.equal(root.get(columnName),zip));
+            incomeData = session.createQuery(query).getResultList();
+        } catch (HibernateException he) {
+            logger.debug("Hibernate exception thrown in getIncomeByZip");
+            logger.catching(he);
+        } catch (Exception ex) {
+            logger.catching(ex);
+        }
+        return incomeData;
+    }
+
+    /** Get income data by year and zip code.
+     *
+     * @param zip Zip Code
+     * @param year Year to retrieve
+     * @return IncomeData
+     */
+    public List<IncomeData> getIncomeData(int zip, int year) {
         List<IncomeData> incomeData = null;
         final String columnName = "zipCode";
 

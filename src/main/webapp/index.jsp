@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>${title}</title>
+    <title>Java Collective API</title>
 
     <script   src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
@@ -29,51 +29,105 @@
 <body>
     <div class="container">
         <h1>Income Data API</h1>
-        <div>
-            <h2>Introduction</h2>
-            <p>This API provides median income of a zip code for a given year. The year is an optional parameter, and if
-                no year is provided, info for the most recent year is returned. Users can search for a single zip code,
-                or search by city and state, which will provide a list of zip codes and their respective info within the
-                city.</p>
+        <div class="header mb-2">
+            <h2>Overview</h2>
+            <p class="fw-bold"> For full documentation please see README on GitHub: <a href="https://github.com/johnoliver42/The-Java-Collective">Documentation</a> </p>
+            <p>This API provides median income of a zip code for a given year, with data from IRS reports of the span of
+                2015 - 2019. The year is an optional parameter, and if no year is provided, info for the most recent year
+                (2019) is returned. Users can search for a single zip code, or search by city and state, which will
+                provide a list of zip codes and their respective info within the city.
+            </p>
+            <p> The response is built around the Reports object, which contains zip code, city name, state name,
+                average income of the zip code for a year, and the year the data was provided.
+                <ul>
+                    <li>If searching for zip code, only zip code is required, and year is an optional parameter. </li>
+                    <li>If searching for city, city and state are required, and year is an optional parameter. </li>
+                </ul>
+            </p>
         </div>
-        <article>
-            <h3>Get median income of most recent year by zip code</h3>
-            <p>Example: </p>
-        </article>
-        <article>
-            <h3>Get median income by zip code and year</h3>
-            <p>Example: </p>
-        </article>
-        <article>
-            <h3>Get median income of most recent year for all zip codes by city</h3>
-            <p>Example: </p>
-        </article>
-        <article>
-            <h3>Get median income for all zip codes by city and year</h3>
-            <p>Example: </p>
-        </article>
+        <div class="card mb-2">
+            <div class="card-header"><h3>Reports Object</h3></div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>zipCode</td>
+                            <td>5 digit zip code ex. 53703 </td>
+                        </tr>
+                        <tr>
+                            <td>city</td>
+                            <td>Name of City ex. Madison</td>
+                        </tr>
+                        <tr>
+                            <td>state</td>
+                            <td>Name of State ex. Wisconsin</td>
+                        </tr>
+                        <tr>
+                            <td>householdMedianIncome</td>
+                            <td>Household Median Income of zip code for a given year ex. 19000.00</td>
+                        </tr>
+                        <tr>
+                            <td>year</td>
+                            <td>Year of reported median income (OPTIONAL) (Default 2019)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-2">
+            <div class="card-header">
+                <h3>GET median income of most recent year by zip code</h3>
+            </div>
+            <div class="card-body">
+                <p class="fw-bold">Endpoint Structure: </p>
+                <p>income-data/reports/zip-code/{zipCode} </p>
+                <p class="fw-bold">Example Endpoint: </p>
+                <p class="fst-italic">income-data/reports/zip-code/53703 </p>
+            </div>
+        </div>
+        <div class="card mb-2">
+            <div class="card-header">
+                <h3>GET median income by zip code and year</h3>
+            </div>
+            <div class="card-body mb-2">
+                <p class="fw-bold"> Endpoint Structure: </p>
+                <p>income-data/reports/zip-code/{zipCode}?year={year} </p>
+                <p class="fw-bold">Example Endpoint: </p>
+                <p class="fst-italic">income-data/reports/zip-code/53703?year=2018 </p>
+            </div>
+        </div>
+        <div class="card mb-2">
+            <div class="card-header">
+                <h3>GET median income of most recent year for all zip codes by city</h3>
+            </div>
+            <div class="card-body">
+                <p class="fw-bold">Endpoint Structure:</p>
+                <p> income-data/reports/state/{state}/city/{city} </p>
+                <p class="fw-bold">Example Endpoint: </p>
+                <p class="fst-italic"> income-data/reports/state/wi/city/madison </p>
+            </div>
+        </div>
+        <div class="card mb-2">
+            <div class="card-header">
+                <h3>GET median income for all zip codes by city and year</h3>
+            </div>
+            <div class="card-body">
+                <p class="fw-bold">Endpoint Structure: </p>
+                <p>income-data/reports/state/{state}/city/{city}?year={year} </p>
+                <p class="fw-bold">Example Endpoint: </p>
+                <p class="fst-italic">income-data/reports/state/wi/city/madison?year=2018 </p>
+            </div>
+        </div>
 
         <article>
-            <table>
-                <thead>
-                <tr>
-                    <th>Zip Code</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Median Income</th>
-                    <th>Year</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                </tbody>
-            </table>
+            <p>Brought to you by The Java Collective - Erik, John, and Alivia</p>
         </article>
     </div>
 </body>

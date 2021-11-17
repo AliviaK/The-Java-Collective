@@ -17,8 +17,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-//Defines the base URI for all resource URIs.
-@ApplicationPath("/services")
 
 //The java class declares root resource and provider classes
 public class ReportsApplication extends Application {

@@ -4,8 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 
-// Income Data object I named Reports but can be refactored if there is a better name for it
 
+/**
+ * The type Reports. This class represents a report on median income of a zip code in a year, including city and state
+ * name.
+ */
 public class Reports {
 
     private int zipCode;

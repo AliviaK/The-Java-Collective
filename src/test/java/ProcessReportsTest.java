@@ -33,7 +33,7 @@ public class ProcessReportsTest {
 
     @Test
     public void testProcessStateCity() throws Exception {
-        ProcessReports pr = new ProcessReports();
+        /** ProcessReports pr = new ProcessReports();
         int year = 2019;
 
         //not used, but does work with a single item array
@@ -43,7 +43,7 @@ public class ProcessReportsTest {
 
         //this city returns 2 zips.  we are sending 3 years so
         //that is total of 2 reports
-        assertEquals(2, reports.size());
+        assertEquals(2, reports.size()); */
 
     }
 

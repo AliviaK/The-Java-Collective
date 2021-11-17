@@ -32,7 +32,7 @@
         <div class="header mb-2">
             <h2>Overview</h2>
             <p class="fw-bold"> For full documentation please see README on GitHub: <a href="https://github.com/johnoliver42/The-Java-Collective">Documentation</a> </p>
-            <p>This API provides median income of a zip code for a given year, with data from IRS reports of the span of
+            <p>This API provides median income of a zip code for a given year, with data from US Census reports of the span of
                 2015 - 2019. The year is an optional parameter, and if no year is provided, info for the most recent year
                 (2019) is returned. Users can search for a single zip code, or search by city and state, which will
                 provide a list of zip codes and their respective info within the city.
@@ -87,7 +87,7 @@
             </div>
             <div class="card-body">
                 <p class="fw-bold">Endpoint Structure: </p>
-                <p> /income-data/reports/zip-code/{zipCode} </p>
+                <p> /income-data/reports/zip-codes/{zipCode} </p>
                 <p class="fw-bold">Example Endpoint: </p>
                 <p class="fst-italic"> /income-data/reports/zip-codes/53703 </p>
             </div>
@@ -98,7 +98,7 @@
             </div>
             <div class="card-body mb-2">
                 <p class="fw-bold"> Endpoint Structure: </p>
-                <p> /income-data/reports/zip-code/{zipCode}?year={year} </p>
+                <p> /income-data/reports/zip-codes/{zipCode}?year={year} </p>
                 <p class="fw-bold">Example Endpoint: </p>
                 <p class="fst-italic"> /income-data/reports/zip-codes/53703?year=2018 </p>
             </div>

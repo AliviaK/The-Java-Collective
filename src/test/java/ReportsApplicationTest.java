@@ -1,8 +1,5 @@
-import Zippopotamus.API.StateCity;
-import Zippopotamus.API.ZipCode;
-import edu.matc.controller.ReportsApplication;
+import edu.matc.controller.ProcessReports;
 import edu.matc.entity.*;
-import edu.matc.persistence.ZippopotamusDAO;
 import org.junit.Test;
 
 import java.util.Arrays;

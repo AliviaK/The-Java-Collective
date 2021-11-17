@@ -62,7 +62,34 @@ class IncomeDataDAOTest {
         incomeData.forEach((record) -> {
                     if(record.getYear() == 2018)
                         assertEquals( (Float)58261f,record.getEstimateHouseholdsMeanIncomeDollars());
+                    logger.debug("Record Data: " + record.getYear() +" "+ record.getZipCode() +" "+ record.getEstimateHouseholdsMeanIncomeDollars());
                 }
         );
     }
+
+//    @Test
+//    void testGetIncomeData() {
+//
+//        ArrayList<Integer> zips = new ArrayList<>();
+//        zips.add(600086);
+//        zips.add(60415);
+//        zips.add(60602);
+//        zips.add(60604);
+//
+//        ArrayList<Integer> years = new ArrayList<>();
+//        years.add(2019);
+//        years.add(2018);
+//        years.add(2017);
+//        years.add(2016);
+//        years.add(2015);
+//
+//        ArrayList<IncomeData> incomeData = new ArrayList<>();
+//        incomeData = (ArrayList<IncomeData>) incomeDataDAO.getIncomeData(zips,years);
+//
+//        incomeData.forEach((dataum) -> {
+//            logger.info("Year: " + dataum.getYear() + " Zip: " + dataum.getZipCode() + " Income: " + dataum.getEstimateHouseholdsMeanIncomeDollars());
+//
+//        });
+//
+//    }
 }

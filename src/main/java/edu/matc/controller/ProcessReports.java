@@ -85,6 +85,7 @@ public class ProcessReports {
     // method takes a single zip code and its city/state data,
     //and loads the income data for the year called
     private void setReport(int zip, String state, String city, int year){
+        logger.debug("setReport: ZIP: " + zip+" state: " + state + " year: " + year );
         IncomeDataDAO incomeDataDAO = new IncomeDataDAO();
         ArrayList<IncomeData> incomeData = new ArrayList<IncomeData>();
 
@@ -96,7 +97,10 @@ public class ProcessReports {
             report.setState(state);
             report.setYear(year);
 
-            report.setHouseholdMedianIncome(incomeData.get(0).getEstimateHouseholdsMedianIncomeDollars());
+            // Ignore null results.
+            if (incomeData.size() > 0) {
+                report.setHouseholdMedianIncome(incomeData.get(0).getEstimateHouseholdsMedianIncomeDollars());
+            }
 
             reports.add(report);
             logger.info("SetReport ran = new report object: "+report);

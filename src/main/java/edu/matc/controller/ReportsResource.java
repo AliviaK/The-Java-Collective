@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 import java.util.List;
 
 // Class to be filled out
@@ -26,10 +27,10 @@ public class ReportsResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/zipCodes/{zipCode}")
-    public Response getDataByZip(@PathParam("zipCode") int zipCode) throws JsonProcessingException {
-        List<Reports> reports = pr.processZipCode(zipCode);
-
+    @Path("/zip-codes/{zipCode}")
+    public Response getDataByZip(@PathParam("zipCode") int zipCode,
+                                 @QueryParam("year") @DefaultValue("2019") int year) throws JsonProcessingException {
+        List<Reports> reports = pr.processZipCode(zipCode, year);
 
         if (reports != null) {
             return Response.ok(reports, MediaType.APPLICATION_JSON).build();
@@ -49,8 +50,10 @@ public class ReportsResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/cities/{state}/{city}")
-    public Response getDataByCity(@PathParam("state") String state, @PathParam("city") String city) throws JsonProcessingException {
-        List<Reports> reportsOfStateCity = pr.processStateCity(state, city);
+    public Response getDataByCity(@PathParam("state") String state,
+                                  @PathParam("city") String city,
+                                  @QueryParam("year") @DefaultValue("2019") int year) throws JsonProcessingException {
+        List<Reports> reportsOfStateCity = pr.processStateCity(state, city, year);
 
         if (reportsOfStateCity != null) {
             return Response.ok(reportsOfStateCity, MediaType.APPLICATION_JSON).build();

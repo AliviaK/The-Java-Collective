@@ -25,7 +25,7 @@ public class IncomeDataDAO {
      * @param zip zip code
      * @return Income data based on zip code
      */
-    public List<IncomeData> getIncomeData(int zip) {
+    public List<IncomeData> getIncomeData(String zip) {
         List<IncomeData> incomeData = null;
         final String columnName = "zipCode";
 
@@ -52,7 +52,7 @@ public class IncomeDataDAO {
      * @param year Year to retrieve
      * @return IncomeData
      */
-    public List<IncomeData> getIncomeData(int zip, int year) {
+    public List<IncomeData> getIncomeData(String zip, int year) {
         logger.debug("Get income by zip and year. YEAR: " + year + " ZIP: " + zip);
         List<IncomeData> incomeData = null;
         final String zipColumn = "zipCode";

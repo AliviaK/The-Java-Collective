@@ -32,7 +32,7 @@ public class ReportsResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/zip-codes/{zipCode}")
-    public Response getDataByZip(@PathParam("zipCode") int zipCode,
+    public Response getDataByZip(@PathParam("zipCode") String zipCode,
                                  @QueryParam("year") @DefaultValue("2019") int year) throws JsonProcessingException {
         List<Reports> reports = pr.processZipCode(zipCode, year);
 

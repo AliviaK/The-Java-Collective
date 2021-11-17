@@ -21,7 +21,7 @@ public class ProcessReportsTest {
         //not used, but does work with a single item array
         //List<Integer> years = Arrays.asList(2020);
 
-        List<Reports> reports = pr.processZipCode(53512,year);
+        List<Reports> reports = pr.processZipCode("53512",year);
 
         assertEquals(1, reports.size());
         assertEquals(2019, reports.get(0).getYear());

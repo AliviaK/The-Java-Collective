@@ -33,7 +33,7 @@ public class ProcessReports {
      * @return the list
      * @throws JsonProcessingException the json processing exception
      */
-    public List<Reports> processZipCode(int zipCodeToProcess, int year) throws JsonProcessingException {
+    public List<Reports> processZipCode(String zipCodeToProcess, int year) throws JsonProcessingException {
 
         ZippopotamusDAO zippoDAO = new ZippopotamusDAO();
 
@@ -73,7 +73,7 @@ public class ProcessReports {
         //to the set report function
 
         while (i<numOfZips) {
-            setReport(Integer.parseInt(sc.getPlaces().get(i).getPostCode()),state,city,year);
+            setReport(sc.getPlaces().get(i).getPostCode(),state,city,year);
             i++;
         }
 
@@ -84,7 +84,7 @@ public class ProcessReports {
 
     // method takes a single zip code and its city/state data,
     //and loads the income data for the year called
-    private void setReport(int zip, String state, String city, int year){
+    private void setReport(String zip, String state, String city, int year){
         logger.info("SetReport incoming zip: "+zip +"incoming year: "+year);
         IncomeDataDAO incomeDataDAO = new IncomeDataDAO();
         ArrayList<IncomeData> incomeData = new ArrayList<IncomeData>();

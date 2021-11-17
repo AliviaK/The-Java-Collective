@@ -60,11 +60,11 @@ public class Reports {
     @Override
     public String toString() {
         return "Reports{" +
-                "zipCode=" + zipCode +
-                ", householdMedianIncome=" + householdMedianIncome +
-                ", year=" + year +
-                ", state='" + state + '\'' +
-                ", city='" + city + '\'' +
+                "zipCode= " + zipCode +
+                ", householdMedianIncome= " + householdMedianIncome +
+                ", year= " + year +
+                ", state= '" + state + '\'' +
+                ", city= '" + city + '\'' +
                 '}';
     }
 }
